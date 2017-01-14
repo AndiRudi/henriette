@@ -7,7 +7,7 @@ from time import *
 from flask import Flask, url_for
 
 app = Flask(__name__)
-lcd = deque(['', '', '', ''])
+lcdView = deque(['', '', '', ''])
 
 @app.route('/')
 def api_root():
@@ -53,12 +53,12 @@ def api_pump():
     return 'Navigating to'
 
 def writeDebug(text):
-    lcd = lcd.popleft()
-    lcd = lcd.append(text)
-    lcd.lcd_display_string(lcd[0], 1)
-    lcd.lcd_display_string(lcd[1], 2)
-    lcd.lcd_display_string(lcd[2], 3)
-    lcd.lcd_display_string(lcd[3], 4)
+    lcdView = lcdView.popleft()
+    lcdView = lcdView.append(text)
+    lcd.lcd_display_string(lcdView[0], 1)
+    lcd.lcd_display_string(lcdView[1], 2)
+    lcd.lcd_display_string(lcdView[2], 3)
+    lcd.lcd_display_string(lcdView[3], 4)
 
 
 # Main Application
