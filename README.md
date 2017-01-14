@@ -6,7 +6,7 @@ Henriette is a remote controlled swan.
 
 henOS is the main server of henriette. Its purpose is to control all the sensors and motors and it providers a rest endpoint to control the swans movement.
 
-* Boot sequence
+## Boot sequence
 
 At startup henOS.py is downloaded from github and automatically started. This ensures that always the newest version is running. The startup sequence is running and displays the main information on the display.
 
