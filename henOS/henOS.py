@@ -53,6 +53,7 @@ def api_pump():
     return 'Navigating to'
 
 def writeDebug(text):
+    global lcdView
     lcdView = lcdView.popleft()
     lcdView = lcdView.append(text)
     lcd.lcd_display_string(lcdView[0], 1)
@@ -62,7 +63,7 @@ def writeDebug(text):
 
 
 # Main Application
-global lcdView = deque(['', '', '', ''])
+lcdView = deque(['', '', '', ''])
 lcd = lcddriver.lcd()
 lcd.lcd_clear()
 writeDebug("henOS starting up")
