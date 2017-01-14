@@ -20,8 +20,8 @@ lcd.lcd_display_string(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 2)
 
 # Use netifaces to get the IP
 addrs = netifaces.ifaddresses('wlan0')
-addr = json.load(addrs[netifaces.AF_INET][0])
-lcd.lcd_display_string(str(addr['addr']), 3)
+
+lcd.lcd_display_string(str(addrs[netifaces.AF_INET][0]["addr"]), 3)
 
 
 Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
