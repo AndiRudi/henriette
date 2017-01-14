@@ -14,7 +14,7 @@ def api_root():
     return 'Welcome to henOS'
 
 @app.route('/overview')
-def api_thrust():
+def api_overview():
     data = {
         'version'  : '0',
         'thrust' : +1,
