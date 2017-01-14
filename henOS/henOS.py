@@ -52,7 +52,7 @@ def api_thrust():
 def api_thrust():
     return 'Navigating to'
 
-def writeDebug(text)
+def writeDebug(text):
     lcd = lcd.popleft()
     lcd = lcd.append(text)
     lcd.lcd_display_string(lcd[0], 1)
