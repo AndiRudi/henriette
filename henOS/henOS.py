@@ -13,7 +13,7 @@ PORT = 8000
 lcd = lcddriver.lcd()
 lcd.lcd_clear()
 lcd.lcd_display_string("henOS starting up", 1)
-lcd.lcd_display_string(datetime.now(), 2)
+lcd.lcd_display_string(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 2)
 
 
 # Use netifaces to get the IP
