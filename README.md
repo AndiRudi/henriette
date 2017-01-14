@@ -2,7 +2,7 @@
 
 Henriette is a remote controlled swan.
 
-/henOS.py henriette operating system
+## /henOS.py henriette operating system
 
 henOS is the main server of henriette. Its purpose is to control all the sensors and motors and it providers a rest endpoint to control the swans movement.
 
