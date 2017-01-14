@@ -1,6 +1,6 @@
 import SimpleHTTPServer
 import SocketServer
-import lcddriver
+import lib.lcddriver
 from datetime import datetime
 from time import *
 
