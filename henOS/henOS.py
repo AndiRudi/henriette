@@ -55,7 +55,7 @@ def api_pump():
 def writeDebug(text):
     global lcdView
     lcdView.popleft()
-    lcdView = lcdView.append(text)
+    lcdView.append(text)
     lcd.lcd_display_string(lcdView[0], 1)
     lcd.lcd_display_string(lcdView[1], 2)
     lcd.lcd_display_string(lcdView[2], 3)
