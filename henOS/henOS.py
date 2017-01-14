@@ -1,6 +1,7 @@
 import SimpleHTTPServer
 import SocketServer
 import lcddriver
+import netifaces
 from datetime import datetime
 from time import *
 
@@ -17,9 +18,8 @@ lcd.lcd_display_string(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 2)
 
 
 # Use netifaces to get the IP
-
-
-
+addrs = netifaces.ifaddresses('en0')
+lcd.lcd_display_string(addrs[netifaces.AF_INET], 3)
 
 
 Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
