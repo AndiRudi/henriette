@@ -54,7 +54,7 @@ def api_pump():
 
 def writeDebug(text):
     global lcdView
-    lcdView = lcdView.popleft()
+    lcdView.popleft()
     lcdView = lcdView.append(text)
     lcd.lcd_display_string(lcdView[0], 1)
     lcd.lcd_display_string(lcdView[1], 2)
@@ -63,7 +63,7 @@ def writeDebug(text):
 
 
 # Main Application
-lcdView = deque()
+lcdView = deque(['', '', '', ''])
 lcd = lcddriver.lcd()
 lcd.lcd_clear()
 writeDebug("henOS starting up")
