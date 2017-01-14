@@ -63,7 +63,7 @@ def writeDebug(text):
 
 
 # Main Application
-lcdView = deque(['', '', '', ''])
+lcdView = deque()
 lcd = lcddriver.lcd()
 lcd.lcd_clear()
 writeDebug("henOS starting up")
