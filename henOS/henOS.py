@@ -7,7 +7,7 @@ from time import *
 from flask import Flask, url_for
 
 app = Flask(__name__)
-lcdView = deque(['', '', '', ''])
+
 
 @app.route('/')
 def api_root():
@@ -62,6 +62,7 @@ def writeDebug(text):
 
 
 # Main Application
+lcdView = deque(['', '', '', ''])
 lcd = lcddriver.lcd()
 lcd.lcd_clear()
 writeDebug("henOS starting up")
