@@ -15,8 +15,6 @@ def api_root():
 def api_articles():
     return 'List of ' + url_for('api_articles')
 
-PORT = 8000
-
 # Main Application
 
 lcd = lcddriver.lcd()
@@ -31,4 +29,4 @@ lcd.lcd_display_string("wlan0:" + str(addrs[netifaces.AF_INET][0]["addr"]), 3)
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
