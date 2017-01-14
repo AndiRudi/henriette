@@ -14,9 +14,17 @@ At startup henOS.py is downloaded from github and automatically started. This en
 
 The HD44780 display shows relevant information inside the swan and is needed for maintenance. On startup it shows the current version of henOS, the battery status, current IP address and network status. This makes it easy to get a direct connection.
 
-### Motorization
+### Thrust and Steering
 
 The forward thrust is done by a 6V Motor controlled by a BEC system connected to the PWM driver board. The ship rudder is controlled with a servo also connected to the PWM driver board. The driver board itself is connected with I2C to the raspberry.
+
+### Head
+
+The head movement is controlled by a Fischertechnik motor connected with the help of a L293D driver chip. Its used to turn the swans head left right.
+
+### Camera
+
+The rasperry camera is used to get a picture from the swans viewpoint.
 
 ### GPS Positioning
 
