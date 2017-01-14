@@ -2,6 +2,7 @@ import SimpleHTTPServer
 import SocketServer
 import lcddriver
 import netifaces
+import json
 from datetime import datetime
 from time import *
 
@@ -19,7 +20,8 @@ lcd.lcd_display_string(datetime.now().strftime("%Y-%m-%d %H:%M:%S"), 2)
 
 # Use netifaces to get the IP
 addrs = netifaces.ifaddresses('wlan0')
-lcd.lcd_display_string(str(addrs[netifaces.AF_INET]), 3)
+addr = json.load(addrs[netifaces.AF_INET])
+lcd.lcd_display_string(str(addr[0]['addr']), 3)
 
 
 Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
