@@ -37,19 +37,19 @@ def api_thrust():
     return 'Engaged'
 
 @app.route('/rudder', methods=['POST'])
-def api_thrust():
+def api_rudder():
     return 'Ruddered'
 
 @app.route('/position', methods=['POST'])
-def api_thrust():
+def api_position():
     return 'Navigating to'
 
 @app.route('/head', methods=['POST'])
-def api_thrust():
+def api_head():
     return 'Head moved'
 
 @app.route('/pump', methods=['POST'])
-def api_thrust():
+def api_pump():
     return 'Navigating to'
 
 def writeDebug(text):
