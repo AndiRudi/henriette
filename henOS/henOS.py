@@ -4,10 +4,12 @@ import json
 from collections import deque
 from datetime import datetime
 from time import *
-from flask import Flask, url_for
+from flask import Flask, url_for, jsonify
 
 app = Flask(__name__)
 
+thrust = 0
+rudder = 0
 
 @app.route('/')
 def api_root():
@@ -16,21 +18,11 @@ def api_root():
 @app.route('/overview')
 def api_overview():
     data = {
-        'version'  : '0',
-        'thrust' : +1,
-        'rudder' : -2,
-        'position' : -2,
-        'head' : -2,
-        'pump' : -2,
-        'temperature' : 'undefined',
-        'humidity' : 'undefined',
-        'video_url' : ''
+        'thrust' : thrust,
+        'rudder' : rudder
     }
-    js = json.dumps(data)
 
-    resp = Response(js, status=200, mimetype='application/json')
-
-    return resp
+    return jsonify(data)
 
 @app.route('/thrust', methods=['POST'])
 def api_thrust():
@@ -75,4 +67,4 @@ writeDebug("wlan0:" + str(addrs[netifaces.AF_INET][0]["addr"]))
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=int("80"), debug=True)
