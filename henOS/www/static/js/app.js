@@ -18,7 +18,7 @@ class App extends React.Component {
       body: JSON.stringify({
         amount: amount
       })
-    });
+    }).then(x => x.json().then(r => console.debug(r)));
   }
 
   render() {
