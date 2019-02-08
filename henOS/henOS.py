@@ -8,8 +8,8 @@ from flask import Flask, url_for, jsonify, render_template, request
 
 app = Flask(__name__, 
             static_url_path='', 
-            static_folder='www/static',
-            template_folder='www/templates')
+            static_folder='client/static',
+            template_folder='client/templates')
 
 thrust = 0
 rudder = 0
