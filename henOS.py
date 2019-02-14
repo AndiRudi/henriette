@@ -48,14 +48,18 @@ def api_thrust():
     if (thrust < 0):
         thrust = 0
 
-    writeDebug("Thrust: Changing to " + str(thrust) + "%")
-
     servo_range = servo_max - servo_min
     servo_step = servo_range / 100
     servo_steps = thrust * servo_step
-    writeDebug("Thrust: Range: " + str(servo_range) + " Step: "  + str(servo_step) + " Steps: " + str(servo_steps))
-    set_servo_pulse(0, servo_min + servo_steps) 
-    writeDebug("Thrust: Servo PWM applied");
+    amount = servo_min + servo_steps
+    print("Thrust: Range: " + str(servo_range))
+    print("Thrust: Step: "  + str(servo_step))
+    print("Thrust: Steps: " + str(servo_steps))
+    print("Thrust: Amount: " + str(amount))
+
+    set_servo_pulse(0, amount) 
+   
+    writeDebug("Thrust: " + str(thrust) + "%")
 
     data = {
         'thrust' : thrust,
@@ -89,6 +93,7 @@ def writeDebug(text):
         lcd.lcd_display_string(lcdView[1], 2)
         lcd.lcd_display_string(lcdView[2], 3)
         lcd.lcd_display_string(lcdView[3], 4)
+        print(text)
     except:
         print(text)
 
@@ -124,9 +129,9 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int("80"), debug=True)
 
 # Initalize servo and reset
-writeDebug("henOS: Initializing servo motors")
+writeDebug("Initializing servo motors")
 pwm.set_pwm_freq(60)
-writeDebug("henOS: Resetting servo")
+writeDebug("Resetting servo")
 set_servo_pulse(0, servo_min) 
 set_servo_pulse(1, servo_min) 
-writeDebug("henOS: Completed initializing servos")
+writeDebug("Completed initializing servos")
