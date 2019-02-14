@@ -1,4 +1,5 @@
-#import lcddriver
+import lib/lcddriver
+import Adafruit_PCA9685 #ServoDriver https://github.com/adafruit/Adafruit_Python_PCA9685
 import netifaces
 import json
 from collections import deque
@@ -69,6 +70,16 @@ def writeDebug(text):
         print(text)
 
 
+def set_servo_pulse(channel, pulse):
+    pulse_length = 1000000    # 1,000,000 us per second
+    pulse_length //= 60       # 60 Hz
+    print('{0}us per period'.format(pulse_length))
+    pulse_length //= 4096     # 12 bits of resolution
+    print('{0}us per bit'.format(pulse_length))
+    pulse *= 1000
+    pulse //= pulse_length
+    pwm.set_pwm(channel, 0, pulse)
+
 # Main Application
 try:
     lcdView = deque(['', '', '', ''])
@@ -88,3 +99,12 @@ except:
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int("80"), debug=True)
+
+# Initalize servo and reset
+pwm = Adafruit_PCA9685.PCA9685()
+servo_min = 150  # Min pulse length out of 4096
+servo_max = 600 # Max pulse length out of 4096
+# Set frequency to 60hz, good for servos.
+pwm.set_pwm_freq(60)
+pwm.setPWM(0, 0, servo_min) 
+pwm.setPWM(1, 0, servo_min) 
