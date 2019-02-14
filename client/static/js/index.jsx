@@ -30,8 +30,8 @@ class App extends React.Component {
             <div>
                 Thrust: {this.state.thrust}<br/>
            
-                <button onClick={() => this.thrust(this.state.thrust+1)} >Increase</button>
-                <button onClick={() => this.thrust(this.state.thrust-1)} >Decrease</button>
+                <button onClick={() => this.thrust(this.state.thrust+10)} >Increase</button>
+                <button onClick={() => this.thrust(this.state.thrust-10)} >Decrease</button>
                 <button onClick={() => this.thrust(0)} >Stop</button>
             
              </div>
