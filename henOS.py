@@ -32,7 +32,16 @@ def api_overview():
 def api_thrust():
 
     thrust = request.json['amount']
-    writeDebug("Thrust: " + str(thrust))
+    if (thrust > 100) thrust = 100
+    if (thrust < 0) thrust = 0
+    writeDebug("Thrust: Changing to " + str(thrust) + "%")
+
+    servo_range = servo_max - servo_min
+    servo_step = servo_range / 100
+    servo_steps = thrust * servo_step)
+    writeDebug("Thrust: Range: " + str(servo_range) + " Step: "  + str(servo_step) + " Steps: " + str(servo_steps) )
+    setPWM(0, 0, servo_min + servo_steps) 
+    writeDebug("Thrust: Servo PWM applied");
 
     data = {
         'thrust' : thrust,
@@ -101,10 +110,13 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int("80"), debug=True)
 
 # Initalize servo and reset
+writeDebug("henOS: Initializing servo motors")
 pwm = Adafruit_PCA9685.PCA9685()
 servo_min = 150  # Min pulse length out of 4096
 servo_max = 600 # Max pulse length out of 4096
 # Set frequency to 60hz, good for servos.
 pwm.set_pwm_freq(60)
+writeDebug("henOS: Resetting servo")
 pwm.setPWM(0, 0, servo_min) 
 pwm.setPWM(1, 0, servo_min) 
+writeDebug("henOS: Completed initializing servos")
