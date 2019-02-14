@@ -7,6 +7,7 @@ from datetime import datetime
 from time import *
 from flask import Flask, url_for, jsonify, render_template, request 
 
+# Globals
 app = Flask(__name__, 
             static_url_path='', 
             static_folder='client/static',
@@ -14,6 +15,8 @@ app = Flask(__name__,
 
 thrust = 0
 rudder = 0
+servo_min = 150  # Min pulse length out of 4096
+servo_max = 600 # Max pulse length out of 4096
 
 @app.route('/')
 def api_root():
@@ -117,8 +120,7 @@ if __name__ == '__main__':
 # Initalize servo and reset
 writeDebug("henOS: Initializing servo motors")
 pwm = Adafruit_PCA9685.PCA9685()
-servo_min = 150  # Min pulse length out of 4096
-servo_max = 600 # Max pulse length out of 4096
+
 # Set frequency to 60hz, good for servos.
 pwm.set_pwm_freq(60)
 writeDebug("henOS: Resetting servo")
