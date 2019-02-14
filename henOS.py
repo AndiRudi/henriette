@@ -17,6 +17,7 @@ thrust = 0
 rudder = 0
 servo_min = 150  # Min pulse length out of 4096
 servo_max = 600 # Max pulse length out of 4096
+pwm = Adafruit_PCA9685.PCA9685()
 
 @app.route('/')
 def api_root():
@@ -119,9 +120,6 @@ if __name__ == '__main__':
 
 # Initalize servo and reset
 writeDebug("henOS: Initializing servo motors")
-pwm = Adafruit_PCA9685.PCA9685()
-
-# Set frequency to 60hz, good for servos.
 pwm.set_pwm_freq(60)
 writeDebug("henOS: Resetting servo")
 pwm.setPWM(0, 0, servo_min) 
