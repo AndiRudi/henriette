@@ -2,6 +2,12 @@
 
 Henriette is a remote controlled swan.
 
+## Installation
+
+Clone the repo, then install pip requirements using
+
+`pip install -r requirements.txt`
+
 ## henriette operating system (henOS)
 
 henOS is the main server of henriette. Its purpose is to control all the sensors and motors and it providers a rest endpoint to control the swans movement.
