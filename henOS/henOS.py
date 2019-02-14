@@ -1,4 +1,4 @@
-import lib/lcddriver
+import lcddriver
 import Adafruit_PCA9685 #ServoDriver https://github.com/adafruit/Adafruit_Python_PCA9685
 import netifaces
 import json
