@@ -17,7 +17,12 @@ thrust = 0
 rudder = 0
 servo_min = 150  # Min pulse length out of 4096
 servo_max = 600 # Max pulse length out of 4096
-pwm = Adafruit_PCA9685.PCA9685()
+
+try:
+    pwm = Adafruit_PCA9685.PCA9685()
+except:
+    print("Could not initialize pwm")
+
 
 @app.route('/')
 def api_root():
