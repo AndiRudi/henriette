@@ -43,8 +43,8 @@ def api_thrust():
 
     servo_range = servo_max - servo_min
     servo_step = servo_range / 100
-    servo_steps = thrust * servo_step)
-    writeDebug("Thrust: Range: " + str(servo_range) + " Step: "  + str(servo_step) + " Steps: " + str(servo_steps) )
+    servo_steps = thrust * servo_step
+    writeDebug("Thrust: Range: " + str(servo_range) + " Step: "  + str(servo_step) + " Steps: " + str(servo_steps))
     setPWM(0, 0, servo_min + servo_steps) 
     writeDebug("Thrust: Servo PWM applied");
 
