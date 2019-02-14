@@ -32,8 +32,13 @@ def api_overview():
 def api_thrust():
 
     thrust = request.json['amount']
-    if (thrust > 100) thrust = 100
-    if (thrust < 0) thrust = 0
+    
+    if (thrust > 100):
+        thrust = 100
+    
+    if (thrust < 0):
+        thrust = 0
+
     writeDebug("Thrust: Changing to " + str(thrust) + "%")
 
     servo_range = servo_max - servo_min
