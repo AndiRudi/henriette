@@ -5,6 +5,7 @@ Henriette is a remote controlled swan.
 ## Setup Raspberry Pi
 
 Follow the installation https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi
+
 Install Servokit `pip3 install adafruit-circuitpython-servokit` and test with scripts mentioned in https://circuitpython.readthedocs.io/projects/servokit/en/latest/
 
 ## Installation
