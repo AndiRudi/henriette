@@ -8,6 +8,8 @@ Follow the installation https://learn.adafruit.com/circuitpython-on-raspberrypi-
 
 Install Servokit `pip3 install adafruit-circuitpython-servokit` and test with scripts mentioned in https://circuitpython.readthedocs.io/projects/servokit/en/latest/
 
+Installe LCD `pip3 install adafruit-circuitpython-charlcd` and test with scripts mentioned in https://circuitpython.readthedocs.io/projects/charlcd/en/latest/
+
 Install git `sudo apt-get install git` to be able to checkout this repo
 
 ## Installation
